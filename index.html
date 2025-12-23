@@ -17,7 +17,7 @@ body {
 /* HEADER */
 header {
   position: relative;
-  height: 220px;
+  height: 240px;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   overflow: hidden;
   color: white;
@@ -30,25 +30,32 @@ header {
   width: 2px;
   height: 2px;
   border-radius: 50%;
-  animation: blink 2s infinite alternate;
+  animation: blink 1.5s infinite alternate;
 }
 
 @keyframes blink {
-  from { opacity: 0.2; }
+  from { opacity: 0.3; }
   to { opacity: 1; }
 }
 
-/* BUTTERFLY */
+/* BUTTERFLIES */
 .butterfly {
   position: absolute;
-  font-size: 26px;
-  animation: fly 15s linear infinite;
+  font-size: 34px;
+  filter: brightness(1.8) drop-shadow(0 0 8px #fff);
+  animation: fly 18s linear infinite;
 }
 
 @keyframes fly {
-  0% { transform: translateX(-10%) translateY(50px); opacity: 0; }
+  0% {
+    transform: translateX(-20%) translateY(0);
+    opacity: 0;
+  }
   10% { opacity: 1; }
-  100% { transform: translateX(110%) translateY(-50px); opacity: 0; }
+  100% {
+    transform: translateX(120%) translateY(-60px);
+    opacity: 0;
+  }
 }
 
 /* HEADER CONTENT */
@@ -97,6 +104,7 @@ header {
   font-weight: 600;
 }
 
+/* NAV */
 nav {
   background: white;
   padding: 15px;
@@ -110,6 +118,7 @@ nav a {
   color: #1e3c72;
 }
 
+/* SECTIONS */
 section {
   max-width: 1000px;
   margin: 40px auto;
@@ -141,14 +150,20 @@ footer {
 
   <!-- STARS -->
   <div class="star" style="top:20px; left:10%"></div>
-  <div class="star" style="top:50px; left:40%"></div>
-  <div class="star" style="top:90px; left:70%"></div>
-  <div class="star" style="top:30px; left:85%"></div>
-  <div class="star" style="top:120px; left:25%"></div>
+  <div class="star" style="top:60px; left:30%"></div>
+  <div class="star" style="top:40px; left:55%"></div>
+  <div class="star" style="top:80px; left:75%"></div>
+  <div class="star" style="top:120px; left:90%"></div>
 
-  <!-- BUTTERFLIES -->
-  <div class="butterfly" style="top:60px;">🦋</div>
-  <div class="butterfly" style="top:120px; animation-delay:5s;">🦋</div>
+  <!-- BUTTERFLIES (BRIGHT & SPREAD) -->
+  <div class="butterfly" style="top:30px; animation-delay:0s;">🦋</div>
+  <div class="butterfly" style="top:80px; animation-delay:2s;">🦋</div>
+  <div class="butterfly" style="top:130px; animation-delay:4s;">🦋</div>
+  <div class="butterfly" style="top:50px; animation-delay:6s;">🦋</div>
+  <div class="butterfly" style="top:160px; animation-delay:8s;">🦋</div>
+  <div class="butterfly" style="top:100px; animation-delay:10s;">🦋</div>
+  <div class="butterfly" style="top:20px; animation-delay:12s;">🦋</div>
+  <div class="butterfly" style="top:190px; animation-delay:14s;">🦋</div>
 
   <div class="header-container">
     <div class="logo">
