@@ -46,7 +46,6 @@ header {
   animation: fly 18s linear infinite;
 }
 
-/* Animate butterflies from left to right, small vertical random */
 @keyframes fly {
   0% { transform: translateX(-20%) translateY(0); opacity: 0; }
   10% { opacity: 1; }
@@ -68,7 +67,6 @@ header {
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 20px;
 }
 
 .logo img {
@@ -76,6 +74,10 @@ header {
   width: auto;
 }
 
+/* remove left padding to stick logo to edge */
+.logo { padding-left: 0; }
+
+/* HEADER TEXT */
 .header-text {
   flex: 1;
   text-align: center;
@@ -150,22 +152,22 @@ footer {
   <div class="star" style="top:80px; left:75%"></div>
   <div class="star" style="top:120px; left:90%"></div>
 
-  <!-- BUTTERFLIES: 15 evenly spaced -->
-  <div class="butterfly" style="top:30px; left:0%; animation-delay:0s;">🦋</div>
-  <div class="butterfly" style="top:50px; left:7%; animation-delay:1s;">🦋</div>
-  <div class="butterfly" style="top:80px; left:14%; animation-delay:2s;">🦋</div>
-  <div class="butterfly" style="top:40px; left:21%; animation-delay:3s;">🦋</div>
-  <div class="butterfly" style="top:60px; left:28%; animation-delay:4s;">🦋</div>
-  <div class="butterfly" style="top:90px; left:35%; animation-delay:5s;">🦋</div>
-  <div class="butterfly" style="top:30px; left:42%; animation-delay:6s;">🦋</div>
-  <div class="butterfly" style="top:70px; left:49%; animation-delay:7s;">🦋</div>
-  <div class="butterfly" style="top:50px; left:56%; animation-delay:8s;">🦋</div>
-  <div class="butterfly" style="top:100px; left:63%; animation-delay:9s;">🦋</div>
-  <div class="butterfly" style="top:40px; left:70%; animation-delay:10s;">🦋</div>
-  <div class="butterfly" style="top:80px; left:77%; animation-delay:11s;">🦋</div>
-  <div class="butterfly" style="top:60px; left:84%; animation-delay:12s;">🦋</div>
-  <div class="butterfly" style="top:30px; left:91%; animation-delay:13s;">🦋</div>
-  <div class="butterfly" style="top:100px; left:98%; animation-delay:14s;">🦋</div>
+  <!-- BUTTERFLIES: Avoid middle area (around 90px to 150px) -->
+  <div class="butterfly" style="top:10px; left:0%; animation-delay:0s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:7%; animation-delay:1s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:14%; animation-delay:2s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:21%; animation-delay:3s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:28%; animation-delay:4s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:35%; animation-delay:5s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:42%; animation-delay:6s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:49%; animation-delay:7s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:56%; animation-delay:8s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:63%; animation-delay:9s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:70%; animation-delay:10s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:77%; animation-delay:11s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:84%; animation-delay:12s;">🦋</div>
+  <div class="butterfly" style="top:10px; left:91%; animation-delay:13s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:98%; animation-delay:14s;">🦋</div>
 
   <div class="header-container">
     <div class="logo">
