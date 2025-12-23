@@ -39,12 +39,34 @@ header {
   to { opacity: 1; }
 }
 
-/* BUTTERFLIES */
+/* BUTTERFLIES FLOATING ANIMATION */
 .butterfly {
   position: absolute;
   font-size: 30px;
   filter: brightness(2) drop-shadow(0 0 6px #fff);
+  animation: float linear infinite;
   transition: transform 0.1s linear;
+}
+
+/* Sparkle */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 10px #fff;
+}
+
+/* FLOATING ANIMATION */
+@keyframes float {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(30px, -20px) rotate(15deg); }
+  50%  { transform: translate(60px, 10px) rotate(-10deg); }
+  75%  { transform: translate(30px, 20px) rotate(10deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 /* HEADER CONTENT */
@@ -157,24 +179,24 @@ footer {
   <div class="star" style="top:120px; left:90%"></div>
 
   <!-- BUTTERFLIES -->
-  <div class="butterfly" style="top:10px; left:5%;">🦋</div>
-  <div class="butterfly" style="top:200px; left:10%;">🦋</div>
-  <div class="butterfly" style="top:20px; left:18%;">🦋</div>
-  <div class="butterfly" style="top:210px; left:22%;">🦋</div>
-  <div class="butterfly" style="top:15px; left:30%;">🦋</div>
-  <div class="butterfly" style="top:220px; left:35%;">🦋</div>
-  <div class="butterfly" style="top:10px; left:42%;">🦋</div>
-  <div class="butterfly" style="top:200px; left:50%;">🦋</div>
-  <div class="butterfly" style="top:25px; left:58%;">🦋</div>
-  <div class="butterfly" style="top:210px; left:63%;">🦋</div>
-  <div class="butterfly" style="top:10px; left:70%;">🦋</div>
-  <div class="butterfly" style="top:200px; left:77%;">🦋</div>
-  <div class="butterfly" style="top:15px; left:82%;">🦋</div>
-  <div class="butterfly" style="top:220px; left:88%;">🦋</div>
-  <div class="butterfly" style="top:20px; left:95%;">🦋</div>
+  <div class="butterfly" style="top:20px; left:5%; animation-duration:12s;">🦋</div>
+  <div class="butterfly" style="top:220px; left:10%; animation-duration:14s;">🦋</div>
+  <div class="butterfly" style="top:50px; left:18%; animation-duration:16s;">🦋</div>
+  <div class="butterfly" style="top:210px; left:22%; animation-duration:13s;">🦋</div>
+  <div class="butterfly" style="top:30px; left:30%; animation-duration:15s;">🦋</div>
+  <div class="butterfly" style="top:230px; left:35%; animation-duration:17s;">🦋</div>
+  <div class="butterfly" style="top:60px; left:42%; animation-duration:14s;">🦋</div>
+  <div class="butterfly" style="top:200px; left:50%; animation-duration:16s;">🦋</div>
+  <div class="butterfly" style="top:25px; left:58%; animation-duration:13s;">🦋</div>
+  <div class="butterfly" style="top:210px; left:63%; animation-duration:15s;">🦋</div>
+  <div class="butterfly" style="top:40px; left:70%; animation-duration:14s;">🦋</div>
+  <div class="butterfly" style="top:220px; left:77%; animation-duration:16s;">🦋</div>
+  <div class="butterfly" style="top:20px; left:82%; animation-duration:15s;">🦋</div>
+  <div class="butterfly" style="top:230px; left:88%; animation-duration:17s;">🦋</div>
+  <div class="butterfly" style="top:50px; left:95%; animation-duration:16s;">🦋</div>
 
+  <!-- HEADER CONTENT -->
   <div class="header-container">
-    <!-- LOGO FLUSH LEFT -->
     <div class="logo">
       <img src="assets/logo.jpg" alt="SSD Logo">
     </div>
@@ -210,19 +232,34 @@ footer {
   © 2025 SSD Learning and Technologies
 </footer>
 
+<!-- SCRIPT -->
 <script>
-// Interactive butterflies follow mouse
 const butterflies = document.querySelectorAll('.butterfly');
+
+// Create sparkles
+butterflies.forEach(b => {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  document.body.appendChild(sparkle);
+  b.sparkle = sparkle;
+});
 
 document.addEventListener('mousemove', e => {
   const mouseX = e.clientX;
   const mouseY = e.clientY;
 
   butterflies.forEach((b, i) => {
-    // Random movement factor
-    const offsetX = (Math.sin((Date.now()/1000 + i) * 2) * 15);
-    const offsetY = (Math.cos((Date.now()/1000 + i) * 3) * 10);
-    b.style.transform = `translate(${mouseX/20 + offsetX}px, ${mouseY/30 + offsetY}px) rotate(${i*20}deg)`;
+    const driftX = Math.sin(Date.now()/1000 + i) * 20;
+    const driftY = Math.cos(Date.now()/1000 + i*1.3) * 15;
+    b.style.transform = `translate(${driftX + mouseX/50}px, ${driftY + mouseY/50}px) rotate(${i*20}deg)`;
+
+    // Sparkle effect near butterfly
+    if (Math.random() < 0.02) { // random blink
+      b.sparkle.style.left = (b.getBoundingClientRect().left + 10) + 'px';
+      b.sparkle.style.top = (b.getBoundingClientRect().top + 10) + 'px';
+      b.sparkle.style.opacity = 1;
+      setTimeout(() => { b.sparkle.style.opacity = 0; }, 200);
+    }
   });
 });
 </script>
