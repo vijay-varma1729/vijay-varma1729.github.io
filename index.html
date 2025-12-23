@@ -48,18 +48,6 @@ header {
   transition: transform 0.1s linear;
 }
 
-/* Sparkle */
-.sparkle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-  box-shadow: 0 0 10px #fff;
-}
-
 /* FLOATING ANIMATION */
 @keyframes float {
   0%   { transform: translate(0px, 0px) rotate(0deg); }
@@ -112,7 +100,7 @@ header {
 }
 
 .header-text p {
-  margin: 8px 0;
+  margin: 15px 0 25px;
   font-weight: 500;
   color: #f0f0f0;
 }
@@ -124,7 +112,6 @@ header {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  margin-top: 25px;
 }
 
 /* NAV */
@@ -155,6 +142,26 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25D366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
 }
 
 /* MOBILE */
@@ -228,41 +235,27 @@ footer {
     allowfullscreen></iframe>
 </section>
 
+<section id="about">
+  <h2>About Vijay</h2>
+  <p>Hi, I am Vijay, a Data Engineer & Product Owner. Through SSD Learning and Technologies, I share practical, industry-level knowledge to help learners grow confidently.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>📧 Email: <strong>vijay.varma1729@gmail.com</strong></p>
+</section>
+
 <footer>
   © 2025 SSD Learning and Technologies
 </footer>
 
-<!-- SCRIPT -->
-<script>
-const butterflies = document.querySelectorAll('.butterfly');
-
-// Create sparkles
-butterflies.forEach(b => {
-  const sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  document.body.appendChild(sparkle);
-  b.sparkle = sparkle;
-});
-
-document.addEventListener('mousemove', e => {
-  const mouseX = e.clientX;
-  const mouseY = e.clientY;
-
-  butterflies.forEach((b, i) => {
-    const driftX = Math.sin(Date.now()/1000 + i) * 20;
-    const driftY = Math.cos(Date.now()/1000 + i*1.3) * 15;
-    b.style.transform = `translate(${driftX + mouseX/50}px, ${driftY + mouseY/50}px) rotate(${i*20}deg)`;
-
-    // Sparkle effect near butterfly
-    if (Math.random() < 0.02) { // random blink
-      b.sparkle.style.left = (b.getBoundingClientRect().left + 10) + 'px';
-      b.sparkle.style.top = (b.getBoundingClientRect().top + 10) + 'px';
-      b.sparkle.style.opacity = 1;
-      setTimeout(() => { b.sparkle.style.opacity = 0; }, 200);
-    }
-  });
-});
-</script>
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/919885404448?text=Hello,%20I%20need%20help%20with%20SSD%20Learning" 
+   target="_blank" 
+   class="whatsapp-btn" 
+   title="Chat with us on WhatsApp">
+   🟢 WhatsApp Chat
+</a>
 
 </body>
 </html>
