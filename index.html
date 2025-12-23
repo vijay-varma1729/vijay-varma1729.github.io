@@ -39,20 +39,12 @@ header {
   to { opacity: 1; }
 }
 
-/* BUTTERFLIES RANDOM FLOATING */
+/* BUTTERFLIES */
 .butterfly {
   position: absolute;
   font-size: 30px;
   filter: brightness(2) drop-shadow(0 0 6px #fff);
-  animation: float 15s linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateX(0px) translateY(0px) rotate(0deg); }
-  25% { transform: translateX(30px) translateY(-20px) rotate(20deg); }
-  50% { transform: translateX(60px) translateY(10px) rotate(-10deg); }
-  75% { transform: translateX(30px) translateY(25px) rotate(15deg); }
-  100% { transform: translateX(0px) translateY(0px) rotate(0deg); }
+  transition: transform 0.1s linear;
 }
 
 /* HEADER CONTENT */
@@ -90,11 +82,11 @@ header {
 .header-text h1 {
   margin: 0;
   font-family: 'Pacifico', cursive;
-  font-size: 42px;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  font-size: 46px;
+  background: linear-gradient(to right, #fff176, #ffeb3b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .header-text p {
@@ -106,11 +98,11 @@ header {
 .btn {
   background: #ff3d00;
   color: white;
-  padding: 10px 25px;
+  padding: 12px 28px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 /* NAV */
@@ -150,8 +142,6 @@ footer {
   .logo { height: 120px; }
   .header-text h1 { font-size: 32px; }
 }
-
-/* ADJUST BUTTERFLY POSITIONS */
 </style>
 </head>
 
@@ -166,22 +156,22 @@ footer {
   <div class="star" style="top:80px; left:75%"></div>
   <div class="star" style="top:120px; left:90%"></div>
 
-  <!-- BUTTERFLIES: Avoid title center (90px to 180px vertically) -->
-  <div class="butterfly" style="top:20px; left:5%; animation-delay:0s;">🦋</div>
-  <div class="butterfly" style="top:30px; left:15%; animation-delay:2s;">🦋</div>
-  <div class="butterfly" style="top:10px; left:25%; animation-delay:4s;">🦋</div>
-  <div class="butterfly" style="top:40px; left:35%; animation-delay:6s;">🦋</div>
-  <div class="butterfly" style="top:20px; left:45%; animation-delay:8s;">🦋</div>
-  <div class="butterfly" style="top:200px; left:10%; animation-delay:1s;">🦋</div>
-  <div class="butterfly" style="top:210px; left:20%; animation-delay:3s;">🦋</div>
-  <div class="butterfly" style="top:220px; left:30%; animation-delay:5s;">🦋</div>
-  <div class="butterfly" style="top:200px; left:40%; animation-delay:7s;">🦋</div>
-  <div class="butterfly" style="top:210px; left:50%; animation-delay:9s;">🦋</div>
-  <div class="butterfly" style="top:20px; left:60%; animation-delay:10s;">🦋</div>
-  <div class="butterfly" style="top:30px; left:70%; animation-delay:11s;">🦋</div>
-  <div class="butterfly" style="top:10px; left:80%; animation-delay:12s;">🦋</div>
-  <div class="butterfly" style="top:200px; left:75%; animation-delay:13s;">🦋</div>
-  <div class="butterfly" style="top:220px; left:90%; animation-delay:14s;">🦋</div>
+  <!-- BUTTERFLIES -->
+  <div class="butterfly" style="top:10px; left:5%;">🦋</div>
+  <div class="butterfly" style="top:200px; left:10%;">🦋</div>
+  <div class="butterfly" style="top:20px; left:18%;">🦋</div>
+  <div class="butterfly" style="top:210px; left:22%;">🦋</div>
+  <div class="butterfly" style="top:15px; left:30%;">🦋</div>
+  <div class="butterfly" style="top:220px; left:35%;">🦋</div>
+  <div class="butterfly" style="top:10px; left:42%;">🦋</div>
+  <div class="butterfly" style="top:200px; left:50%;">🦋</div>
+  <div class="butterfly" style="top:25px; left:58%;">🦋</div>
+  <div class="butterfly" style="top:210px; left:63%;">🦋</div>
+  <div class="butterfly" style="top:10px; left:70%;">🦋</div>
+  <div class="butterfly" style="top:200px; left:77%;">🦋</div>
+  <div class="butterfly" style="top:15px; left:82%;">🦋</div>
+  <div class="butterfly" style="top:220px; left:88%;">🦋</div>
+  <div class="butterfly" style="top:20px; left:95%;">🦋</div>
 
   <div class="header-container">
     <!-- LOGO FLUSH LEFT -->
@@ -219,6 +209,23 @@ footer {
 <footer>
   © 2025 SSD Learning and Technologies
 </footer>
+
+<script>
+// Interactive butterflies follow mouse
+const butterflies = document.querySelectorAll('.butterfly');
+
+document.addEventListener('mousemove', e => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  butterflies.forEach((b, i) => {
+    // Random movement factor
+    const offsetX = (Math.sin((Date.now()/1000 + i) * 2) * 15);
+    const offsetY = (Math.cos((Date.now()/1000 + i) * 3) * 10);
+    b.style.transform = `translate(${mouseX/20 + offsetX}px, ${mouseY/30 + offsetY}px) rotate(${i*20}deg)`;
+  });
+});
+</script>
 
 </body>
 </html>
