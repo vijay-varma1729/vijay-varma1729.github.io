@@ -16,41 +16,40 @@
       color: #333;
     }
 
+    /* HEADER */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
-      padding: 20px 40px;
-      flex-wrap: wrap;
+      padding: 40px 20px 60px;
+      text-align: center;
+      position: relative;
     }
 
-    header img {
-      height: 60px;
+    /* LOGO – 4x SIZE */
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+    }
+
+    .logo img {
+      height: 120px; /* Increased 4x */
       width: auto;
     }
 
-    header .header-text {
-      flex-grow: 1;
-      text-align: center;
-      margin-left: 20px;
-    }
-
     header h1 {
-      margin: 0;
-      font-size: 36px;
+      font-size: 42px;
+      margin-bottom: 10px;
     }
 
     header p {
-      margin: 5px 0;
-      font-size: 16px;
+      font-size: 18px;
       opacity: 0.9;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 20px;
       background: #ff3d00;
       color: white;
       padding: 12px 25px;
@@ -65,6 +64,7 @@
       transform: scale(1.05);
     }
 
+    /* NAV */
     nav {
       background: white;
       padding: 15px;
@@ -86,6 +86,7 @@
       color: #ff3d00;
     }
 
+    /* SECTIONS */
     section {
       max-width: 1000px;
       margin: 40px auto;
@@ -105,6 +106,7 @@
       margin-top: 15px;
     }
 
+    /* FOOTER */
     footer {
       background: #1e3c72;
       color: white;
@@ -113,22 +115,37 @@
       margin-top: 50px;
     }
 
-    /* Mobile friendly */
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float span {
+      line-height: 60px;
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-      header h1 {
-        font-size: 28px;
-      }
-      section {
-        padding: 25px;
-      }
-      header .header-text {
-        margin-left: 0;
-        margin-top: 10px;
-      }
+      header h1 { font-size: 32px; }
+      section { padding: 25px; }
+      .logo img { height: 90px; }
     }
   </style>
 </head>
@@ -136,14 +153,17 @@
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/vijay-varma1729/slt1729.github.io/main/Logo3.jpg" alt="SSD Logo">
-  <div class="header-text">
-    <h1>SSD Learning and Technologies</h1>
-    <p>PySpark • Data Engineering • Insurance Education</p>
-    <a class="btn" href="https://www.youtube.com/@SLT1729" target="_blank">
-      Subscribe on YouTube
-    </a>
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="Logo3.jpg" alt="SSD Learning Logo">
   </div>
+
+  <h1>SSD Learning and Technologies</h1>
+  <p>PySpark • Data Engineering • Insurance Education</p>
+
+  <a class="btn" href="https://www.youtube.com/@SLT1729" target="_blank">
+    Subscribe on YouTube
+  </a>
 </header>
 
 <nav>
@@ -156,9 +176,9 @@
 <section id="home">
   <h2>Welcome</h2>
   <p>
-    SSD Learning and Technologies is a modern learning platform focused on practical tutorials in
+    SSD Learning and Technologies is a modern education platform focused on
     <strong>PySpark, Data Engineering, and Insurance concepts</strong>.
-    We simplify complex topics using real-world examples.
+    We explain real-world topics in a simple and practical way.
   </p>
 </section>
 
@@ -176,8 +196,8 @@
   <h2>About Vijay</h2>
   <p>
     Hi, I am Vijay, a Data Engineer & Product Owner.
-    Through SSD Learning and Technologies, I share industry-level knowledge to help
-    students and professionals grow confidently.
+    Through SSD Learning and Technologies, I share industry-level
+    knowledge to help students and professionals grow confidently.
   </p>
 </section>
 
@@ -194,6 +214,14 @@
 <footer>
   © 2025 SSD Learning and Technologies | Built with ❤️ | Free Education Platform
 </footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/91XXXXXXXXXX"
+   class="whatsapp-float"
+   target="_blank"
+   title="Chat on WhatsApp">
+  <span>💬</span>
+</a>
 
 </body>
 </html>
