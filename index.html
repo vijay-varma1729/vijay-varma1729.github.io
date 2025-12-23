@@ -1,238 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SSD Learning and Technologies</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>SSD Learning and Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #eef2f3, #f9f9f9);
-      color: #333;
-    }
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(to right,#eef2f3,#f9f9f9);
+  color:#333;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      padding: 30px 0 50px;
-    }
+/* HEADER */
+header {
+  position:relative;
+  height:260px;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  overflow:hidden;
+  color:white;
+}
 
-    .header-container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-    }
+.header-container {
+  max-width:1200px;
+  margin:auto;
+  height:100%;
+  display:flex;
+  align-items:center;
+  position:relative;
+  z-index:5;
+}
 
-    /* LOGO */
-    .logo {
-      padding-left: 0;
-    }
+.logo {
+  height:100%;
+  display:flex;
+  align-items:center;
+}
 
-    .logo img {
-      height: 120px;
-      width: auto;
-      display: block;
-    }
+.logo img {
+  height:100%;
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
 
-    /* HERO TEXT */
-    .hero {
-      flex: 1;
-      text-align: center;
-      padding: 0 20px;
-    }
+.header-text {
+  flex:1;
+  text-align:center;
+  padding:0 20px;
+}
 
-    .hero h1 {
-      font-size: 44px;
-      font-weight: 700;
-      background: linear-gradient(90deg, #ffffff, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-    }
+.header-text h1 {
+  margin:0;
+  font-family:'Pacifico',cursive;
+  font-size:46px;
+  background:linear-gradient(to right,#fff9c4,#ffee58,#ffd740);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:2px 2px 12px rgba(0,0,0,0.6);
+}
 
-    .hero h2 {
-      font-size: 22px;
-      font-weight: 400;
-      margin-bottom: 20px;
-      color: #e0f7ff;
-    }
+.header-text p {
+  margin:15px 0 25px;
+  font-size:18px;
+  color:#f1f1f1;
+}
 
-    .hero p {
-      font-size: 16px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      opacity: 0.95;
-    }
+.btn {
+  display:inline-block;
+  background:#ff3d00;
+  color:white;
+  padding:12px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-    .cta-buttons {
-      margin-top: 30px;
-    }
+.btn:hover {
+  background:#ff5722;
+  transform:scale(1.05);
+}
 
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 14px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
+/* NAV */
+nav {
+  background:white;
+  padding:15px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
 
-    .btn-primary {
-      background: #ff3d00;
-      color: white;
-    }
+nav a {
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:600;
+  color:#1e3c72;
+}
 
-    .btn-primary:hover {
-      background: #ff5722;
-      transform: scale(1.05);
-    }
+nav a:hover { color:#ff3d00; }
 
-    .btn-secondary {
-      border: 2px solid #ffffff;
-      color: #ffffff;
-    }
+/* DROPDOWN */
+.dropdown { position:relative; display:inline-block; }
+.dropdown-content {
+  display:none;
+  position:absolute;
+  background:white;
+  min-width:200px;
+  border-radius:8px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  display:block;
+  padding:12px 15px;
+}
+.dropdown:hover .dropdown-content { display:block; }
 
-    .btn-secondary:hover {
-      background: #ffffff;
-      color: #203a43;
-    }
+/* SECTIONS */
+section {
+  max-width:1100px;
+  margin:40px auto;
+  padding:40px;
+  background:white;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
 
-    /* NAVIGATION */
-    nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+h2 { color:#1e3c72; margin-bottom:15px; }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #203a43;
-      font-weight: 600;
-    }
+/* FEATURE GRID */
+.features {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
 
-    nav a:hover {
-      color: #ff3d00;
-    }
+.card {
+  background:linear-gradient(135deg,#f8f9fa,#ffffff);
+  padding:25px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
 
-    /* SECTIONS */
-    section {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 40px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
+.card h3 { color:#203a43; margin-bottom:10px; }
 
-    section h2 {
-      color: #203a43;
-      margin-bottom: 15px;
-    }
+/* FOOTER */
+footer {
+  background:#1e3c72;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
 
-    ul {
-      line-height: 1.8;
-    }
+/* WHATSAPP */
+.whatsapp-btn {
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  background:#25D366;
+  color:white;
+  padding:14px 22px;
+  border-radius:50px;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  z-index:1000;
+}
 
-    /* FOOTER */
-    footer {
-      background: #203a43;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-    }
+/* STARS */
+.star {
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:blink 1.5s infinite alternate;
+}
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-      }
+@keyframes blink { from{opacity:0.3;} to{opacity:1;} }
 
-      .hero h1 {
-        font-size: 32px;
-      }
+/* BUTTERFLIES */
+.butterfly {
+  position:absolute;
+  font-size:28px;
+  filter:brightness(2) drop-shadow(0 0 6px #fff);
+  animation:float linear infinite;
+}
 
-      .logo img {
-        height: 90px;
-        margin-bottom: 20px;
-      }
-    }
-  </style>
+@keyframes float {
+  0%{transform:translate(0,0);}
+  50%{transform:translate(50px,-30px);}
+  100%{transform:translate(0,0);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{height:auto;padding:20px 0;}
+  .header-container{flex-direction:column;}
+  .logo{height:120px;}
+  .header-text h1{font-size:32px;}
+}
+</style>
 </head>
 
 <body>
 
 <header>
+  <!-- Stars -->
+  <div class="star" style="top:20px;left:10%"></div>
+  <div class="star" style="top:80px;left:40%"></div>
+  <div class="star" style="top:40px;left:70%"></div>
+
+  <!-- Butterflies -->
+  <div class="butterfly" style="top:30px;left:10%;animation-duration:14s">🦋</div>
+  <div class="butterfly" style="top:120px;left:30%;animation-duration:16s">🦋</div>
+  <div class="butterfly" style="top:40px;left:60%;animation-duration:18s">🦋</div>
+  <div class="butterfly" style="top:100px;left:80%;animation-duration:15s">🦋</div>
+
   <div class="header-container">
-
-    <!-- LOGO -->
     <div class="logo">
-      <img src="assets/logo.jpg" alt="SSD Learning and Technologies Logo">
+      <img src="assets/logo.jpg" alt="SSD Logo">
     </div>
-
-    <!-- HERO SECTION -->
-    <div class="hero">
+    <div class="header-text">
       <h1>SSD Learning and Technologies</h1>
-      <h2>Building Job-Ready Skills in Data Engineering, Data Analytics & Generative AI</h2>
-
-      <p>
-        SSD Learning and Technologies is a modern learning platform focused on
-        practical, industry-oriented education. We help students and
-        professionals gain real-world skills and confidently grow their careers
-        in Data, Cloud, and Generative AI.
-      </p>
-
-      <div class="cta-buttons">
-        <a class="btn btn-primary" href="https://www.youtube.com/@SLT1729" target="_blank">
-          Subscribe on YouTube
-        </a>
-        <a class="btn btn-secondary" href="#paths">
-          Explore Learning Paths
-        </a>
-      </div>
+      <p>Learn • Build • Grow — Data Engineer | Data Analyst | Gen AI</p>
+      <a class="btn" href="https://www.youtube.com/@SLT1729" target="_blank">
+        Subscribe on YouTube
+      </a>
     </div>
-
   </div>
 </header>
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="sql.html">SQL</a>
-  <a href="python.html">Python</a>
-  <a href="pyspark.html">PySpark</a>
-  <a href="aws.html">AWS</a>
+  <div class="dropdown">
+    <a href="#">Playlists ▼</a>
+    <div class="dropdown-content">
+      <a href="sql.html">SQL Basics</a>
+      <a href="python.html">Python Fundamentals</a>
+      <a href="pyspark.html">PySpark</a>
+      <a href="aws.html">AWS Cloud</a>
+    </div>
+  </div>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<section id="paths">
-  <h2>Learning Paths</h2>
-  <ul>
-    <li><strong>SQL Basics</strong> – Foundation for Data Analysts & Engineers</li>
-    <li><strong>Python Fundamentals</strong> – Programming for Data & AI</li>
-    <li><strong>PySpark</strong> – Big Data Processing & Pipelines</li>
-    <li><strong>AWS Cloud Data Engineer</strong> – End-to-End Cloud Solutions</li>
-    <li><strong>Generative AI</strong> – Modern AI for Data Professionals</li>
-  </ul>
+<section>
+  <h2>Welcome to SSD Learning & Technologies</h2>
+  <p>
+    SSD Learning & Technologies is a modern, practical learning platform designed
+    for aspiring and working professionals who want to grow as
+    <strong>Data Engineers, Data Analysts, and Gen AI professionals</strong>.
+  </p>
+
+  <div class="features">
+    <div class="card">
+      <h3>🎯 Career-Focused Learning</h3>
+      <p>Industry-ready content aligned with real job roles and interview expectations.</p>
+    </div>
+
+    <div class="card">
+      <h3>📘 Structured Playlists</h3>
+      <p>SQL, Python, PySpark, AWS & Gen AI explained step-by-step.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛠 Hands-On Examples</h3>
+      <p>Real-world use cases, projects & coding demos.</p>
+    </div>
+
+    <div class="card">
+      <h3>💬 Direct Support</h3>
+      <p>Quick help & guidance through WhatsApp chat.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  © 2025 SSD Learning and Technologies | Building Job-Ready Careers 🚀
+  © 2025 SSD Learning and Technologies | Learn. Build. Grow.
 </footer>
+
+<a class="whatsapp-btn"
+   href="https://wa.me/919885404448?text=Hello,%20I%20need%20learning%20guidance"
+   target="_blank">
+   🟢 WhatsApp Help
+</a>
 
 </body>
 </html>
