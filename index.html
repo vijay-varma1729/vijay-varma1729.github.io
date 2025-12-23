@@ -39,13 +39,33 @@ header {
   to { opacity: 1; }
 }
 
-/* BUTTERFLIES FLOATING ANIMATION */
+/* BUTTERFLIES AND TRAILS */
 .butterfly {
   position: absolute;
   font-size: 30px;
   filter: brightness(2) drop-shadow(0 0 6px #fff);
   animation: float linear infinite;
   transition: transform 0.1s linear;
+}
+
+/* Glowing trail behind butterfly */
+.butterfly::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: trail 2s linear infinite;
+}
+
+@keyframes trail {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
 }
 
 /* FLOATING ANIMATION */
