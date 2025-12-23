@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SLT1729 Learning</title>
+  <title>SSD Learning and Technologies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Font -->
@@ -17,25 +17,40 @@
     }
 
     header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
-      padding: 60px 20px;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 60px;
+      width: auto;
+    }
+
+    header .header-text {
+      flex-grow: 1;
       text-align: center;
+      margin-left: 20px;
     }
 
     header h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 36px;
     }
 
     header p {
-      font-size: 18px;
+      margin: 5px 0;
+      font-size: 16px;
       opacity: 0.9;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 10px;
       background: #ff3d00;
       color: white;
       padding: 12px 25px;
@@ -100,8 +115,20 @@
 
     /* Mobile friendly */
     @media (max-width: 768px) {
-      header h1 { font-size: 32px; }
-      section { padding: 25px; }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 28px;
+      }
+      section {
+        padding: 25px;
+      }
+      header .header-text {
+        margin-left: 0;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -109,11 +136,14 @@
 <body>
 
 <header>
-  <h1>SLT1729 Learning</h1>
-  <p>PySpark • Data Engineering • Insurance Education</p>
-  <a class="btn" href="https://www.youtube.com/@SLT1729" target="_blank">
-    Subscribe on YouTube
-  </a>
+  <img src="https://raw.githubusercontent.com/vijay-varma1729/slt1729.github.io/main/Logo3.jpg" alt="SSD Logo">
+  <div class="header-text">
+    <h1>SSD Learning and Technologies</h1>
+    <p>PySpark • Data Engineering • Insurance Education</p>
+    <a class="btn" href="https://www.youtube.com/@SLT1729" target="_blank">
+      Subscribe on YouTube
+    </a>
+  </div>
 </header>
 
 <nav>
@@ -126,7 +156,7 @@
 <section id="home">
   <h2>Welcome</h2>
   <p>
-    SLT1729 is a modern learning platform focused on practical tutorials in
+    SSD Learning and Technologies is a modern learning platform focused on practical tutorials in
     <strong>PySpark, Data Engineering, and Insurance concepts</strong>.
     We simplify complex topics using real-world examples.
   </p>
@@ -146,7 +176,7 @@
   <h2>About Vijay</h2>
   <p>
     Hi, I am Vijay, a Data Engineer & Product Owner.
-    Through SLT1729, I share industry-level knowledge to help
+    Through SSD Learning and Technologies, I share industry-level knowledge to help
     students and professionals grow confidently.
   </p>
 </section>
@@ -162,7 +192,7 @@
 </section>
 
 <footer>
-  © 2025 SLT1729 Learning | Built with ❤️ | Free Education Platform
+  © 2025 SSD Learning and Technologies | Built with ❤️ | Free Education Platform
 </footer>
 
 </body>
